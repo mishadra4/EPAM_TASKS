@@ -3,15 +3,25 @@ package EPAM_LECTURE_3;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-
 public class TrainStation {
-    private LocalDateTime durationOfRoute;
+    private LocalTime durationOfRoute;
     private LocalTime timeOfStop;
     private String nameOfStation;
     private int vacantSeats;
 
     TrainStation(){}
 
+    TrainStation(LocalTime duration, LocalTime timeOfStop, String nameOfStation, int vacantSeats){
+        this.durationOfRoute = duration;
+        this.timeOfStop = timeOfStop;
+        this.nameOfStation = nameOfStation;
+        this.vacantSeats = vacantSeats;
+
+    }
+
+    TrainStation(String nameOfStation){
+        this.nameOfStation = nameOfStation;
+    }
     public int getVacantSeats() {
         return vacantSeats;
     }
@@ -19,23 +29,11 @@ public class TrainStation {
     public void setVacantSeats(int vacantSeats) {
         this.vacantSeats = vacantSeats;
     }
-
-    TrainStation(LocalDateTime duration, LocalTime timeOfStop, String nameOfStation, int vacantSeats){
-        this.durationOfRoute = duration;
-        this.timeOfStop = timeOfStop;
-        this.nameOfStation = nameOfStation;
-        this.vacantSeats = vacantSeats;
-
-    }
-    TrainStation(String nameOfStation){
-        this.nameOfStation = nameOfStation;
-    }
-
-    public LocalDateTime getDurationOfRoute() {
+    public LocalTime getDurationOfRoute() {
         return durationOfRoute;
     }
 
-    public void setDurationOfRoute(LocalDateTime durationOfRoute) {
+    public void setDurationOfRoute(LocalTime durationOfRoute) {
         this.durationOfRoute = durationOfRoute;
     }
 
