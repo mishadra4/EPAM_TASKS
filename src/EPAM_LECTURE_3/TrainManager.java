@@ -1,7 +1,10 @@
 package EPAM_LECTURE_3;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.time.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,23 +13,23 @@ public class TrainManager {
     private List<Train> routes;
     private List<Train> trains;
 
-    public void createTrainArray(){
+    public void createRouteArray(){//this method creates routes array
         routes = new ArrayList<>();
-        System.out.println("To enter new train input 1, to end enter process input 0");
+        System.out.println("To enter new route input 1, to end enter process input 0");
         int k = scanner.nextInt();
         while (k == 1) {
-            routes.add(new Train());
-            System.out.println("To enter new train input 1, to end enter process input 0");
+                routes.add(new Train());
+            System.out.println("To enter new route input 1, to end enter process input 0");
             k = scanner.nextInt();
         }
     }
 
-    List<Train> findTrainFromToLocation(String departureStation, String destination){
+    List<Train> findTrainFromToLocation(String departureStation, String destination){ //this method finds trains which goes from "departureStation" to "destination"
         List<Train> list = new ArrayList();
-        for (int i = 0; i < routes.size(); i++) {
+        for (int i = 0; i < trains.size(); i++) {
             boolean hasDepartureStation = false;
             boolean hasDestination = false;
-            for (TrainStation station: routes.get(i).getStations() ) {
+            for (TrainStation station: trains.get(i).getStations() ) {
                 if(station.getNameOfStation().equals(departureStation) ){
                     hasDepartureStation = true;
                 }
@@ -35,33 +38,36 @@ public class TrainManager {
                 }
             }
             if( hasDepartureStation == true && hasDestination == true ){
-                list.add(routes.get(i));
+                list.add(trains.get(i));
             }
         }
         return list;
     }
 
-    List<Train> findTrainAfterDate(String date){
+    List<Train> findTrainAfterDate(String date){    //this method finds train which goes after date which is a parameter of our method
         List<Train> list = new ArrayList();
-        LocalDateTime localDateTime = LocalDateTime.parse(date);
-        for (int i = 0; i < routes.size(); i++) {
-            for (TrainStation station: routes.get(i).getStations() ) {
-                if( routes.get(i).getDepartureTime() .plusHours(station.getDurationOfRoute().getHour())
-                        .plusMinutes(station.getDurationOfRoute().getMinute()).isAfter(localDateTime)){
-                    list.add(routes.get(i));
+        LocalDateTime localDate = LocalDateTime.parse(date);
+
+        for (int i = 0; i < trains.size(); i++) {
+            for (TrainStation station: trains.get(i).getStations() ) {
+                if( trains.get(i).getDepartureTime().plusHours(station.getDurationOfRoute().getHour())
+                        .plusMinutes(station.getDurationOfRoute().getMinute()).isAfter(localDate)){
+                    list.add(trains.get(i));
+                    break;
                 }
             }
         }
         return list;
     }
 
-    List<Train> findTrainByNameOfStationWithFreePlace(String nameOfStation){
+    List<Train> findTrainByNameOfStationWithFreePlace(String nameOfStation){//this method finds trains with free place and which goes to station
         List<Train> list = new ArrayList();
-        for (int i = 0; i < routes.size(); i++) {
-            if (routes.get(i).getVacantSeats() > 0) {
-                for (TrainStation station : routes.get(i).getStations()) {
+        for (int i = 0; i < trains.size(); i++) {
+            if (trains.get(i).getVacantSeats() > 0) {
+                for (TrainStation station : trains.get(i).getStations()) {
                     if (station.getNameOfStation().indexOf(nameOfStation) != -1) {
-                        list.add(routes.get(i));
+                        list.add(trains.get(i));
+                        break;
                     }
                 }
             }
@@ -69,24 +75,37 @@ public class TrainManager {
         return list;
     }
 
-    void generateTrainsForAWeek(){
+    void generateTrainsForAWeek(){//this method generates trains which goes by routes
+        trains = new LinkedList<>();
 
-        for (Train train: routes) {
+        for (Train route: routes) {
             DayOfWeek dayOfWeek = LocalDateTime.now().getDayOfWeek();
             LocalDateTime date = LocalDateTime.now();
             for (int i = 0; i < 7; i++) {
-                if(train.getDaysOfMonth() != 2){
-                    if(train.getDaysOfMonth() == date.getDayOfMonth() % 2){
-                        for (DayOfWeek day : train.getDaysOfWeek()) {
-                            if(day.equals(dayOfWeek)){
-                                trains.add(train);
-                            }
+                if(route.getDaysOfMonth() == 2){
+                    for (DayOfWeek day : route.getDaysOfWeek()) {
+                        if(day.equals(dayOfWeek)){
+                            route.setDepartureTime(LocalDateTime.of(date.getYear(),date.getMonth(), date.getDayOfMonth(),
+                                    route.getStations().get(0).getDurationOfRoute().getHour(), route.getStations().get(0).getDurationOfRoute().getMinute()));
+                            trains.add(route);
+                            break;
                         }
-
                     }
                 }
-                date.plusDays(1);
-                dayOfWeek.plus(1);
+                if(route.getDaysOfMonth() != 2){
+                    if(route.getDaysOfMonth() == date.getDayOfMonth() % 2){
+                        for (DayOfWeek day : route.getDaysOfWeek()) {
+                            if(day.equals(dayOfWeek)){
+                                route.setDepartureTime(LocalDateTime.of(date.getYear(),date.getMonth(), date.getDayOfMonth(),
+                                        route.getStations().get(0).getDurationOfRoute().getHour(), route.getStations().get(0).getDurationOfRoute().getMinute()));
+                                trains.add(route);
+                                break;
+                            }
+                        }
+                    }
+                }
+                date = date.plusDays(1);
+                dayOfWeek = dayOfWeek.plus(1);
             }
 
         }

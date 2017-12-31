@@ -7,15 +7,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Train {
+
     Scanner scanner = new Scanner(System.in);
     private List<TrainStation> stations = new ArrayList();
     private int vacantSeats;
     private LocalDateTime departureTime;
-    private DayOfWeek [] daysOfWeek = new DayOfWeek[7];
+    private List<DayOfWeek> daysOfWeek = new ArrayList<>();
     private int daysOfMonth;
-
-    Train(){
+    Train() {//Initilization of route
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        //departureTime = stations.get(0).getDurationOfRoute();
         System.out.println("Input number of vacant seats:");
         vacantSeats = scanner.nextInt();
         while(vacantSeats < 0){
@@ -50,7 +51,7 @@ public class Train {
             System.out.println("This train goes anywhere. You enter " + n + " station!");
         }
         System.out.println("Enter days of week when the train go by route(1-Mon, 2-Tue...), to end entering input 0");
-        for(int i = 0; ; i++){
+        while(true){
             k = scanner.nextInt();
             if(k == 0) {
                 break;
@@ -58,7 +59,7 @@ public class Train {
             if(k < 1 || k > 7){
                 System.out.println("You enter wrong day of week. Try again!");
             }
-            daysOfWeek[i] = DayOfWeek.of(k);
+            daysOfWeek.add(DayOfWeek.of(k));
         }
         System.out.println("Choose the right expression: " +
                 "\n0. The train goes only in paired days of month." +
@@ -67,18 +68,18 @@ public class Train {
         daysOfMonth = scanner.nextInt();
     }
 
-    boolean buyTicket(String departureStation, String destination){
+    boolean buyTicket(String departureStation, String destination){//this method decrement vacant seats from departureStation to destination
             boolean hasDepartureStation = false;
             for (TrainStation station: this.stations ) {
                 if(hasDepartureStation){
-                    station.setVacantSeats(station.getVacantSeats() - 1 );
+                    station.setVacantSeats( (station.getVacantSeats() - 1) );
                 }
                 if(station.getNameOfStation().equals(departureStation) ){
-                    station.setVacantSeats(station.getVacantSeats() - 1 );
+                    station.setVacantSeats((station.getVacantSeats() - 1) );
                     hasDepartureStation = true;
                 }
                 if(station.getNameOfStation().equals(destination) ){
-                    station.setVacantSeats(station.getVacantSeats() - 1 );
+                    station.setVacantSeats((station.getVacantSeats() - 1) );
                     return true;
                 }
             }
@@ -108,11 +109,11 @@ public class Train {
     public void setDepartureTime(LocalDateTime departureTime) {
         this.departureTime = departureTime;
     }
-    public DayOfWeek[] getDaysOfWeek() {
+    public List<DayOfWeek> getDaysOfWeek() {
         return daysOfWeek;
     }
 
-    public void setDaysOfWeek(DayOfWeek[] daysOfWeek) {
+    public void setDaysOfWeek(List<DayOfWeek> daysOfWeek) {
         this.daysOfWeek = daysOfWeek;
     }
 
