@@ -15,7 +15,6 @@ public class Main
             string += scanner.nextLine();
             string += "\n";
         }
-
         ExtendedString extendedString = new ExtendedString(string);
         string = extendedString.formatToRightEdge(10);
         //string = extendedString.shortenSequence();
