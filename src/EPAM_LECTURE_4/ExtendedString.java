@@ -20,7 +20,7 @@ public class ExtendedString {
         int stringQuantity = 0;
         for (int i = 0; i < string.length(); i++) {
             if(string.charAt(i) == '\n'){
-                String string2 = new String();
+                String  string2 = new String();
                 for (int j = 0; j < lengthOfLine - i%11 - 1; j++) {
                     string2+=' ';
                 }
