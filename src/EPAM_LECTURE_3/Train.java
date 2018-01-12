@@ -11,11 +11,11 @@ public class Train {
     private List<TrainStation> stations = new ArrayList();
     private int vacantSeats;
     private LocalDateTime departureTime;
-    private DayOfWeek [] daysOfWeek;
+    private DayOfWeek [] daysOfWeek = new DayOfWeek[7];
     private int daysOfMonth;
 
     Train(){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         System.out.println("Input number of vacant seats:");
         vacantSeats = scanner.nextInt();
         while(vacantSeats < 0){
@@ -23,16 +23,20 @@ public class Train {
             vacantSeats = scanner.nextInt();
         }
         int k, n = 0;
-        System.out.println("If you want to add new station input 1, to end input 0");
-        k = scanner.nextInt();
+
         String nameOfStation;
-        while(k == 1){
+        while(true){
+            System.out.println("If you want to add new station input 1, to end input 0");
+            k = scanner.nextInt();
+            if(k == 0){
+                break;
+            }
             System.out.println("Input name of station");
             scanner.nextLine();
             nameOfStation = scanner.nextLine();
             TrainStation station = new TrainStation();
-            System.out.println("Input date of arriving(format: DD hh:mm)");
-            LocalDateTime durationOfRoute = LocalDateTime.parse(scanner.nextLine(), formatter);
+            System.out.println("Input date of arriving(format: hh:mm)");
+            LocalTime durationOfRoute = LocalTime.parse(scanner.nextLine(), formatter);
             System.out.println("Input time of stop(in minutes)");
             LocalTime timeOfStop = LocalTime.parse("00:" + scanner.nextInt());
             station.setDurationOfRoute(durationOfRoute);
@@ -56,22 +60,24 @@ public class Train {
             }
             daysOfWeek[i] = DayOfWeek.of(k);
         }
-        System.out.println("Choose the right expression: \n 1. The train goes every day of month." +
-                "\n2. The train goes only in paired days of month." +
-                "\n3. The train goes only in odd days of month.");
+        System.out.println("Choose the right expression: " +
+                "\n0. The train goes only in paired days of month." +
+                "\n1. The train goes only in odd days of month." +
+                "\n2. The train goes every day of month.");
         daysOfMonth = scanner.nextInt();
     }
-    boolean buyTicket(TrainStation departureStation, TrainStation destination){
+
+    boolean buyTicket(String departureStation, String destination){
             boolean hasDepartureStation = false;
             for (TrainStation station: this.stations ) {
                 if(hasDepartureStation){
                     station.setVacantSeats(station.getVacantSeats() - 1 );
                 }
-                if(station.getNameOfStation().equals(departureStation.getNameOfStation()) ){
+                if(station.getNameOfStation().equals(departureStation) ){
                     station.setVacantSeats(station.getVacantSeats() - 1 );
                     hasDepartureStation = true;
                 }
-                if(station.getNameOfStation().equals(destination.getNameOfStation()) ){
+                if(station.getNameOfStation().equals(destination) ){
                     station.setVacantSeats(station.getVacantSeats() - 1 );
                     return true;
                 }
@@ -101,5 +107,20 @@ public class Train {
 
     public void setDepartureTime(LocalDateTime departureTime) {
         this.departureTime = departureTime;
+    }
+    public DayOfWeek[] getDaysOfWeek() {
+        return daysOfWeek;
+    }
+
+    public void setDaysOfWeek(DayOfWeek[] daysOfWeek) {
+        this.daysOfWeek = daysOfWeek;
+    }
+
+    public int getDaysOfMonth() {
+        return daysOfMonth;
+    }
+
+    public void setDaysOfMonth(int daysOfMonth) {
+        this.daysOfMonth = daysOfMonth;
     }
 }
