@@ -14,7 +14,7 @@ public class Train {
     private LocalDateTime departureTime;
     private List<DayOfWeek> daysOfWeek = new ArrayList<>();
     private int daysOfMonth;
-    Train() {//Initilization of route
+    public Train() {//Initilization of route
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         //departureTime = stations.get(0).getDurationOfRoute();
         System.out.println("Input number of vacant seats:");
