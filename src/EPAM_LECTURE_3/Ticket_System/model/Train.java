@@ -3,12 +3,12 @@ package EPAM_LECTURE_3.Ticket_System.model;
 
 public class Train {
     private int TrainId;
-    private Route route;
+    private Schedule schedule;
     private int seatsNumber;
 
-    public Train(int trainId, Route route, int seatsNumber) {
+    public Train(int trainId,Schedule schedule, int seatsNumber) {
         TrainId = trainId;
-        this.route = route;
+        this.schedule = schedule;
         this.seatsNumber = seatsNumber;
     }
 }

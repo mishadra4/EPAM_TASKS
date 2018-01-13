@@ -2,6 +2,7 @@ package EPAM_LECTURE_3.Ticket_System.service;
 
 
 import EPAM_LECTURE_3.Ticket_System.model.Route;
+import EPAM_LECTURE_3.Ticket_System.model.Schedule;
 import EPAM_LECTURE_3.Ticket_System.model.Station;
 
 import java.util.LinkedList;
@@ -21,8 +22,8 @@ public class RouteFactory {
             System.out.println("Input " + i++ + " station.");
             stations.add(StationFactory.getStation(scanner.nextLine()));
         }
-
-        Route route = new Route(stations,routePool.size(),ScheduleManager.getSchedule());
+        Schedule schedule = ScheduleManager.getSchedule();
+        Route route = new Route(stations,routePool.size(),schedule,TrainManager.getTrain(schedule));
         routePool.add(route);
         return route;
     }
