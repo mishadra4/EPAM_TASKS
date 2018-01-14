@@ -1,20 +1,24 @@
 package EPAM_LECTURE_3.Ticket_System.service;
 
-import EPAM_LECTURE_3.Ticket_System.model.Schedule;
+import EPAM_LECTURE_3.Ticket_System.model.Station;
 import EPAM_LECTURE_3.Ticket_System.model.Train;
 
-import java.util.LinkedList;
-import java.util.Scanner;
-
 public class TrainManager {
-    private static LinkedList<Train> trainPool = new LinkedList<>();
-
-    public static Train getTrain(Schedule schedule){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Input number of seats of the train!");
-        int numberOfSeats = scanner.nextInt();
-        Train train = new Train(trainPool.size(),schedule,numberOfSeats);
-        trainPool.add(train);
-        return train;
+    public static Train getTrain(String departure, String destination) {
+        for (Train train : TrainFactory.getTrainPool()) {
+            int hasDeparture = -1, hasDestination = -1;
+            for (int i = 0; i < train.getSchedule().getStations().size(); i++) {
+                if (departure.equals(train.getSchedule().getStations().get(i).getNameOfStaion()) && train.getVacantSeatsByStations().get(i) > 0) {
+                    hasDeparture = i;
+                }
+                if (destination.equals(train.getSchedule().getStations().get(i).getNameOfStaion()) && train.getVacantSeatsByStations().get(i) > 0) {
+                    hasDestination = i;
+                }
+            }
+            if (hasDeparture >= 0 && hasDestination >= 0 && hasDeparture < hasDestination){
+                return train;
+            }
+        }
+        return null;
     }
 }
