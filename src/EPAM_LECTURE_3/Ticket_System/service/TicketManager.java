@@ -11,7 +11,7 @@ import java.util.LinkedList;
 public class TicketManager {
 
 
-    Ticket buyTicket(String passengerName, String departure, String destination){
+    public static Ticket buyTicket(String passengerName, String departure, String destination){
         Train train = TrainManager.getTrain(departure,destination);
         int destinationId = 0, departureId = 0;
         for (int i = 0; i < train.getSchedule().getStations().size(); i++) {
