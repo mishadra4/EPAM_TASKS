@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ResourceBundleManager">
-    <file url="file://$PROJECT_DIR$/src/EPAM_LECTURE_4/presentation/Phrases.properties" />
-    <file url="file://$PROJECT_DIR$/src/EPAM_LECTURE_4/presentation/Phrases_en_US.properties" />
-    <file url="file://$PROJECT_DIR$/src/EPAM_LECTURE_4/presentation/Phrases_uk_UA.properties" />
+    <file url="file://$PROJECT_DIR$/src/PRESENTATIONS/DateTimeLocalization/Phrases.properties" />
+    <file url="file://$PROJECT_DIR$/src/PRESENTATIONS/DateTimeLocalization/Phrases_en_US.properties" />
+    <file url="file://$PROJECT_DIR$/src/PRESENTATIONS/DateTimeLocalization/Phrases_uk_UA.properties" />
     <custom-resource-bundle>
-      <file value="file://$PROJECT_DIR$/src/EPAM_LECTURE_4/presentation/Phrases.properties" />
-      <file value="file://$PROJECT_DIR$/src/EPAM_LECTURE_4/presentation/Phrases_en_US.properties" />
-      <file value="file://$PROJECT_DIR$/src/EPAM_LECTURE_4/presentation/Phrases_uk_UA.properties" />
+      <file value="file://$PROJECT_DIR$/src/PRESENTATIONS/DateTimeLocalization/Phrases.properties" />
+      <file value="file://$PROJECT_DIR$/src/PRESENTATIONS/DateTimeLocalization/Phrases_en_US.properties" />
+      <file value="file://$PROJECT_DIR$/src/PRESENTATIONS/DateTimeLocalization/Phrases_uk_UA.properties" />
       <base-name>Phrases</base-name>
     </custom-resource-bundle>
   </component>
