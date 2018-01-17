@@ -1,5 +1,6 @@
 package EPAM_LECTURE_5;
 
+import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Vector;
 
@@ -21,6 +22,7 @@ class Customer {
 
     public String statement() {
         double totalAmount = 0;
+        ArrayList list = new ArrayList();
         int frequentRenterPoints = 0;
         Enumeration rentals = _rentals.elements();
         String result = "Rental Record for " + getName() + "\n";
