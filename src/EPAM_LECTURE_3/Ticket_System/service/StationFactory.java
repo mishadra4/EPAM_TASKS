@@ -2,7 +2,6 @@ package EPAM_LECTURE_3.Ticket_System.service;
 
 
 import EPAM_LECTURE_3.Ticket_System.model.Station;
-
 import java.util.LinkedList;
 
 public class StationFactory {
