@@ -7,7 +7,7 @@ import EPAM_LECTURE_6.COFFEE_POINT.model.Order;
 import EPAM_LECTURE_6.COFFEE_POINT.model.Product;
 
 public  class BuyingManager {
-    private Order order = new Order();
+    private static Order order = new Order();
 
     public void addToOrder(String name, int quantity){
 
@@ -17,7 +17,7 @@ public  class BuyingManager {
             System.out.println("We haven`t " + quantity + " units of " + name + " in sell");
             return;
         }
-
+        order.setSum(order.getSum() + product.getPrice() * quantity);
         order.addProduct(product);
     }
 
@@ -33,4 +33,11 @@ public  class BuyingManager {
         return false;
     }
 
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        BuyingManager.order = order;
+    }
 }
