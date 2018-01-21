@@ -22,4 +22,12 @@ public class ProductManager {
         System.out.println("Unsufficient amount of " + name);
         return null;
     }
+
+    public static LinkedList<InventoryUnit> getInventoryUnits() {
+        return inventoryUnits;
+    }
+
+    public static void setInventoryUnits(LinkedList<InventoryUnit> inventoryUnits) {
+        ProductManager.inventoryUnits = inventoryUnits;
+    }
 }

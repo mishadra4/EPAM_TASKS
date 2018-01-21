@@ -7,6 +7,7 @@ public class Coffee extends Product {
     public Coffee(CoffeeBrand coffeeBrand, CoffeeType coffeeType){
         this.coffeeBrand = coffeeBrand;
         this.coffeeType = coffeeType;
+        super.setName(coffeeType.toString());
     }
 
     public CoffeeType getCoffeeType() {
