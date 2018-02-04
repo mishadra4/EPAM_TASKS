@@ -1,0 +1,11 @@
+package EPAM_LECTURE_10.COFFEE_POINT.model;
+
+public enum CoffeeType {
+    MILK_COFFEE,
+    CHOCOLATE_COFFEE,
+    BLACK_COFFEE,
+    AMERICANO,
+    LATE,
+    MOKIATO,
+    HOT_CHOCOLATE
+}
