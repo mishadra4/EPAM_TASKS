@@ -12,6 +12,8 @@ public class Client {
     private double bonusBalance;
     private List<Order> orderHistory;
 
+    public Client(){}
+
     public Client(String fullName) {
         orderHistory = new LinkedList<>();
         ID = ClientManager.getClients().size();

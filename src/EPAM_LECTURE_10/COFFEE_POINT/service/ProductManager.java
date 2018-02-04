@@ -9,7 +9,7 @@ public class ProductManager {
     private static LinkedList<InventoryUnit> inventoryUnits = new LinkedList<>();
 
     public static void addNewInventoryUnit(String name, double price, Integer quantity){
-        inventoryUnits.add(new InventoryUnit(new Product(name, quantity), quantity));
+        inventoryUnits.add(new InventoryUnit(new Product(name, price), quantity));
     }
 
     public static Product getProduct(String name, int quantity){
@@ -21,5 +21,13 @@ public class ProductManager {
         }
         System.out.println("Unsufficient amount of " + name);
         return null;
+    }
+
+    public static LinkedList<InventoryUnit> getInventoryUnits() {
+        return inventoryUnits;
+    }
+
+    public static void setInventoryUnits(LinkedList<InventoryUnit> inventoryUnits) {
+        ProductManager.inventoryUnits = inventoryUnits;
     }
 }

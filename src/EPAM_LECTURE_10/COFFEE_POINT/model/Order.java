@@ -14,7 +14,10 @@ public class Order {
 
     public void addProduct(Product product){
         this.goods.add(product);
-        this.sum += product.getPrice();
+    }
+
+    public void setSum(double sum) {
+        this.sum = sum;
     }
 
     public List<Product> getGoods() {

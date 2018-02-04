@@ -4,7 +4,7 @@ import EPAM_LECTURE_10.COFFEE_POINT.model.Coffee;
 import EPAM_LECTURE_10.COFFEE_POINT.model.CoffeeBrand;
 import EPAM_LECTURE_10.COFFEE_POINT.model.CoffeeType;
 
-public class IlliCoffeeMachine implements ICoffeeMachine {
+public class IllyCoffeeMachine implements ICoffeeMachine {
 
     CoffeeBrand coffeeBrand = CoffeeBrand.ILLY;
 
