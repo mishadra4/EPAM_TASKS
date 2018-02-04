@@ -4,6 +4,8 @@ public class Coffee extends Product {
     private CoffeeBrand coffeeBrand;
     private CoffeeType coffeeType;
 
+    public Coffee() {}
+
     public Coffee(CoffeeBrand coffeeBrand, CoffeeType coffeeType){
         this.coffeeBrand = coffeeBrand;
         this.coffeeType = coffeeType;
