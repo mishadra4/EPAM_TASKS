@@ -9,8 +9,8 @@ public abstract class DecoratedPizza extends Pizza {
     private Pizza pizza;
     public abstract void addIngredient(Ingredient ingredient);
 
-    public static Pizza getPizza() {
-        return null;
+    public Pizza getPizza() {
+        return this.pizza;
     }
 
     public void setPizza(Pizza pizza) {

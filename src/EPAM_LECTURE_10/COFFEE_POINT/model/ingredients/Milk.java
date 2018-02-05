@@ -4,6 +4,10 @@ package EPAM_LECTURE_10.COFFEE_POINT.model.ingredients;
  * Created by User on 04-Feb-18.
  */
 public class Milk extends Ingredient{
+    private double price = 2.00;
+    private String name = "Milk";
+
+    public Milk() {}
 
     public Milk(String name, double price) {
         super(name,price);

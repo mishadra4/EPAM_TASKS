@@ -4,8 +4,10 @@ package EPAM_LECTURE_10.COFFEE_POINT.model.ingredients;
  * Created by User on 04-Feb-18.
  */
 public class Ingredient {
-    private String name;
-    private double price;
+    private String name = "";
+    private double price = 0.0;
+
+    public Ingredient() {}
 
     public Ingredient(String name, double price) {
         this.name = name;
@@ -17,7 +19,7 @@ public class Ingredient {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name += name;
     }
 
     public double getPrice() {
@@ -25,6 +27,6 @@ public class Ingredient {
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        this.price += price;
     }
 }

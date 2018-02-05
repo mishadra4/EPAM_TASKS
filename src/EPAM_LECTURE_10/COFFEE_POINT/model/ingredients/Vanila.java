@@ -1,4 +1,4 @@
-package EPAM_LECTURE_10.COFFEE_POINT.model;
+package EPAM_LECTURE_10.COFFEE_POINT.model.ingredients;
 
 import EPAM_LECTURE_10.COFFEE_POINT.model.ingredients.Ingredient;
 
@@ -6,8 +6,11 @@ import EPAM_LECTURE_10.COFFEE_POINT.model.ingredients.Ingredient;
  * Created by User on 04-Feb-18.
  */
 public class Vanila extends Ingredient {
-    public Vanila(String name, double price) {
-        super(name,price);
+    private double price = 3.00;
+    private String name = "Vanila";
+    public Vanila() {
+        super.setPrice(price);
+        super.setName(name);
     }
 
     public String getName() {

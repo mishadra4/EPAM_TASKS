@@ -1,7 +1,6 @@
 package EPAM_LECTURE_10.COFFEE_POINT.service;
 
 
-import EPAM_LECTURE_10.COFFEE_POINT.model.CoffeeType;
 import EPAM_LECTURE_10.COFFEE_POINT.model.InventoryUnit;
 import EPAM_LECTURE_10.COFFEE_POINT.model.Product;
 
@@ -91,10 +90,9 @@ public class Seller {
         }
     }
 
-    public void buy(String coffeeType, String coffeeBrand, int quantity, BuyingManager buyingManager) {
+   /**/ public void buy(String coffeeType, String coffeeBrand, int quantity, BuyingManager buyingManager) {
         buyingManager.addToOrder(coffeeType, quantity);
-        ICoffeeMachine coffeeMachine = CoffeeMachineFactory.getCoffeeMachine(coffeeBrand);
-        products.add(coffeeMachine.makeCoffee(CoffeeType.valueOf(coffeeType)));
+
     }
 
     public void buy(String productName, int quantity, BuyingManager buyingManager) {
