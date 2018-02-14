@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="medicine.xsl"?>
+
+<medicines xmlns="medicines"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="medicine.xsd">
+
+    <medicine medicineNo="0">
+        <name>Aspirin</name>
+        <pharm>oao</pharm>
+        <group>painless</group>
+        <analogs>
+            <analog>Analgin</analog>
+            <analog>Doleran</analog>
+            <analog>Farmadol</analog>
+        </analogs>
+        <versions>
+            <version>tablets</version>
+            <version>capsules</version>
+        </versions>
+        <certificate>
+            <id>123012</id>
+            <issue_date>11.11.2011</issue_date>
+            <end_date>11.11.2021</end_date>
+            <organization>Real Pharm</organization>
+        </certificate>
+        <package>
+            <type>Bottle</type>
+            <quantity>100</quantity>
+            <price>4.59</price>
+        </package>
+        <dosage>
+            <dose>1</dose>
+            <period>per day</period>
+        </dosage>
+    </medicine>
+
+    <medicine medicineNo="1">
+        <name>Vitamine B2</name>
+        <pharm>oao</pharm>
+        <group>Vitamines</group>
+        <analogs>
+            <analog>B2 pure edition</analog>
+        </analogs>
+        <versions>
+            <version>tablets</version>
+            <version>capsules</version>
+        </versions>
+        <certificate>
+            <id>123012</id>
+            <issue_date>11.11.2011</issue_date>
+            <end_date>11.11.2021</end_date>
+            <organization>Real Pharm</organization>
+        </certificate>
+        <package>
+            <type>Bottle</type>
+            <quantity>100</quantity>
+            <price>4.59</price>
+        </package>
+        <dosage>
+            <dose>3</dose>
+            <period>per day</period>
+        </dosage>
+    </medicine>
+</medicines>
