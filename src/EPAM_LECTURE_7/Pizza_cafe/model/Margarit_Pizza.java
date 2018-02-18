@@ -12,8 +12,8 @@ public class Margarit_Pizza extends DecoratedPizza {
         super.setName(super.getName() + cheese.getName());
     }
 
-    public static Pizza getPizza(){
-        return null;
+    public Pizza getPizza(){
+        return this;
     }
     @Override
     public void addIngredient(Ingredient ingredient) {
