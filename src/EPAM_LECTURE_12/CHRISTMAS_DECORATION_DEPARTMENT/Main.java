@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<DecorationType> decorationTypes = new LinkedList<>();
+        List<String> decorationTypes = new LinkedList<>();
         List<ChristmasDecoration> christmasDecorations = new LinkedList<>();
 
         ChristmasDecorationManager.addDecoration(new Angel(5.99));
@@ -21,9 +21,9 @@ public class Main {
         ChristmasDecorationManager.addDecoration(new Ribbon(7.99));
         ChristmasDecorationManager.addDecoration(new Star(4.49));
 
-        decorationTypes.add(DecorationType.CHRISTMAS_TREE);
-        decorationTypes.add(DecorationType.FLAT);
-        decorationTypes.add(DecorationType.HOUSE);
+        decorationTypes.add("Christmas_tree");
+        decorationTypes.add("Flat");
+        decorationTypes.add("House");
 
         christmasDecorations = ChristmasDecorationManager.getGroupedDecorations(decorationTypes);
 

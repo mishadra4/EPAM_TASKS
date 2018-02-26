@@ -3,7 +3,7 @@ package EPAM_LECTURE_12.CHRISTMAS_DECORATION_DEPARTMENT.model;
 
 public abstract class HouseDecoration extends ChristmasDecoration {
     public HouseDecoration(String name, Double price){
-        super(name, price, DecorationType.HOUSE);
+        super(name, price, "House");
     }
 
     @Override
@@ -27,12 +27,12 @@ public abstract class HouseDecoration extends ChristmasDecoration {
     }
 
     @Override
-    public DecorationType getDecorationType() {
+    public String getDecorationType() {
         return super.getDecorationType();
     }
 
     @Override
-    public void setDecorationType(DecorationType decorationType) {
+    public void setDecorationType(String decorationType) {
         super.setDecorationType(decorationType);
     }
 }

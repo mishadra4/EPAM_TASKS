@@ -11,6 +11,6 @@ public class ChristmasTreeComparator implements Comparator<ChristmasDecoration> 
         if(o1 == null || o2 == null){
             throw new IllegalArgumentException("Objects are null");
         }
-        return o1.getDecorationType().toString().compareTo(o2.getDecorationType().toString());
+        return o1.getDecorationType().compareTo(o2.getDecorationType());
     }
 }

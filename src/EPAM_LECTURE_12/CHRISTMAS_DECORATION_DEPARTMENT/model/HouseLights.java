@@ -26,12 +26,12 @@ public class HouseLights extends HouseDecoration {
     }
 
     @Override
-    public DecorationType getDecorationType() {
+    public String getDecorationType() {
         return super.getDecorationType();
     }
 
     @Override
-    public void setDecorationType(DecorationType decorationType) {
+    public void setDecorationType(String decorationType) {
         super.setDecorationType(decorationType);
     }
 }

@@ -3,9 +3,9 @@ package EPAM_LECTURE_12.CHRISTMAS_DECORATION_DEPARTMENT.model;
 public abstract class ChristmasDecoration {
     private String name;
     private Double price;
-    private DecorationType decorationType;
+    private String decorationType;
 
-    public ChristmasDecoration(String name, Double price, DecorationType decorationType) {
+    public ChristmasDecoration(String name, Double price, String decorationType) {
         this.name = name;
         this.price = price;
         this.decorationType = decorationType;
@@ -27,11 +27,11 @@ public abstract class ChristmasDecoration {
         this.price = price;
     }
 
-    public DecorationType getDecorationType() {
+    public String getDecorationType() {
         return decorationType;
     }
 
-    public void setDecorationType(DecorationType decorationType) {
+    public void setDecorationType(String decorationType) {
         this.decorationType = decorationType;
     }
 

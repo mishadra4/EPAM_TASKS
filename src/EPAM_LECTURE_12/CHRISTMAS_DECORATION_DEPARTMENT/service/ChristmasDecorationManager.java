@@ -1,7 +1,6 @@
 package EPAM_LECTURE_12.CHRISTMAS_DECORATION_DEPARTMENT.service;
 
 import EPAM_LECTURE_12.CHRISTMAS_DECORATION_DEPARTMENT.model.ChristmasDecoration;
-import EPAM_LECTURE_12.CHRISTMAS_DECORATION_DEPARTMENT.model.DecorationType;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -15,7 +14,7 @@ public class ChristmasDecorationManager {
         return christmasDecorations;
     }
 
-    public static List<ChristmasDecoration> getGroupedDecorations (List<DecorationType> decorationTypes) {
+    public static List<ChristmasDecoration> getGroupedDecorations (List<String> decorationTypes) {
         List<ChristmasDecoration> christmasGroupedDecorations = new LinkedList<>();
         for (ChristmasDecoration christmasDecoration : christmasDecorations) {
             if(decorationTypes.contains(christmasDecoration.getDecorationType())){
